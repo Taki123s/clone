@@ -105,23 +105,35 @@
 		<div class="container">
 			<form action="${profileServlet}" method="post"
 				enctype='multipart/form-data' id="editProfile">
+				
 				<div class="changeAvatar">
 					Ảnh đại diện: <label class="renderAvatar" for="files"> <img
 						alt="" src="${urlAvatar}" id="avtUser">
-						<div style="width: 100%">Upload</div>
+						
+						<div class="upload" ">Upload</div>
 					</label> <input type="file" name="files" id="files" hidden />
 				</div>
 				<div>User name : ${user.userName}</div>
-				<div>
-					Password : <input type="text" value="${user.passWord}" name="pass">
+				<div class="input-group mb-3">
+					<div class="input-group-prepend">
+						<span class="input-group-text">Password :</span>
+					</div>
+					<input type="text" value="${user.passWord}" name="pass">
+				</div>
+				<div class="input-group mb-3">
+					<div class="input-group-prepend">
+						<span class="input-group-text">Email &emsp;&nbsp;&nbsp; :</span>
+					</div>
+					<input type="text" value="${user.email}" name="email">
 				</div>
 				<div>
-					Email : <input type="text" value="${user.email}" name="email">
+					<button class="btn btn-danger" type="submit">Thay đổi</button>
 				</div>
-				<button type="submit">Thay đổi</button>
+
 			</form>
 		</div>
 	</section>
+	
 	<!-- Footer Section Begin -->
 	<c:import url="/anime-main/footer.jsp" />
 	<!-- Footer Section End -->

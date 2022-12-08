@@ -88,7 +88,7 @@
 
 
 
-						<div class="blog__details__text custom">${contentBlog}</div>
+						<div class="blog__details__text">${contentBlog}</div>
 
 
 
@@ -124,61 +124,55 @@
 							<h4>${currentBlog.getTotalComment()}Comments</h4>
 
 							<c:forEach var="bigComment" items="${currentBlog.getListCmt()}">
-								<div class="commentContainer">
+									<div class="commentContainer">
 									<div class="blog__details__comment__item">
+									<div class="blog__details__comment__item__pic">
+										<img
+											src="/AnimeWeb/anime-main/storage/avatarUser/${bigComment.getAvtUserName(listUser)}"
+											style="width: 50px; height: 50px; border-radius: 50%;" alt="">
+									</div>
+									<div class="blog__details__comment__item__text">
+										<span>${bigComment.getDayCmt()}</span>
+										<h5>${bigComment.getUserName()}</h5>
+										<p>${bigComment.getMess()}</p>
+										<a href="#">Like</a> <button
+												value="userCmt=${bigComment.getUserName()}&&idCmt=${bigComment.getIdCmt()}" class="setValue">Reply</button>
+									</div>
+								</div>
+								<c:forEach var="cmtReply" items="${bigComment.getList()}">
+
+									<div
+										class="blog__details__comment__item blog__details__comment__item--reply">
 										<div class="blog__details__comment__item__pic">
 											<img
-												src="/AnimeWeb/anime-main/storage/avatarUser/${bigComment.getAvtUserName(listUser)}?${now}"
+												src="/AnimeWeb/anime-main/storage/avatarUser/${cmtReply.getAvtUserName(listUser)}"
 												style="width: 50px; height: 50px; border-radius: 50%;"
 												alt="">
 										</div>
 										<div class="blog__details__comment__item__text">
-											<span>${bigComment.getDayCmt()}</span>
-											<h5>${bigComment.getUserName()}</h5>
-											<p>${bigComment.getMess()}</p>
-											<a href="#">Like</a>
-											<button
-												value="userCmt=${bigComment.getUserName()}&&idCmt=${bigComment.getIdCmt()}"
-												class="setValue">Reply</button>
+											<span>${cmtReply.getDayCmt()}</span>
+											<h5>${cmtReply.getUserNameReply()}-->
+												${cmtReply.getUserNameCmt()}</h5>
+											<p>${cmtReply.getMessage()}</p>
+											<a href="">Like</a> <button
+													value="userCmt=${cmtReply.getUserNameReply()}&&idCmt=${bigComment.getIdCmt()}" class="setValue">Reply</button>
 										</div>
+										
 									</div>
-									<c:forEach var="cmtReply" items="${bigComment.getList()}">
-
-										<div
-											class="blog__details__comment__item blog__details__comment__item--reply">
-											<div class="blog__details__comment__item__pic">
-												<img
-													src="/AnimeWeb/anime-main/storage/avatarUser/${cmtReply.getAvtUserName(listUser)}?${now}"
-													style="width: 50px; height: 50px; border-radius: 50%;"
-													alt="">
-											</div>
-											<div class="blog__details__comment__item__text">
-												<span>${cmtReply.getDayCmt()}</span>
-												<h5>${cmtReply.getUserNameReply()}-->
-													${cmtReply.getUserNameCmt()}</h5>
-												<p>${cmtReply.getMessage()}</p>
-												<a href="">Like</a>
-												<button
-													value="userCmt=${cmtReply.getUserNameReply()}&&idCmt=${bigComment.getIdCmt()}"
-													class="setValue">Reply</button>
-											</div>
-
-										</div>
 
 
-									</c:forEach>
-									<form
-										action="${commenttoBlog}?type=repcmt&&idblog=${currentBlog.idBlog}"
-										style="display: none;" method="post" class="formComment">
-
-										<textarea placeholder="Your Comment" name="message"
-											style="display: block;"></textarea>
-										<button type="submit" value="" name="" class="site-btn">
-											<i class="fa fa-location-arrow"></i> Submit
-										</button>
-									</form>
-								</div>
-
+								</c:forEach>
+								<form action="${commenttoBlog}?type=repcmt&&idblog=${currentBlog.idBlog}"style="display:none;"
+											method="post" class="formComment">
+										
+											<textarea placeholder="Your Comment" name="message"
+												style="display: block;"></textarea>
+											<button type="submit" value="" name="" class="site-btn">
+												<i class="fa fa-location-arrow"></i> Submit
+											</button>
+										</form>
+									</div>
+								
 							</c:forEach>
 
 
@@ -233,7 +227,7 @@
 		</div>
 	</div>
 	<!-- Search model end -->
-
+	
 	<!-- Js Plugins -->
 	<script src="js/jquery-3.3.1.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
@@ -243,7 +237,7 @@
 	<script src="js/jquery.slicknav.js"></script>
 	<script src="js/owl.carousel.min.js"></script>
 	<script src="js/main.js"></script>
-	<script>
+		<script>
 			
 		
 			
@@ -257,6 +251,7 @@
 		
 		
 		</script>
+		
 </body>
 
 </html>

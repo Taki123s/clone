@@ -39,7 +39,7 @@
 	<c:url var="loginServlet" value="login" />
 	<c:url var="urlAvatar"
 		value="${request.rervletContext.realPath}/anime-main/storage/avatarUser/${sessionScope.user.avatar}" />
-
+		
 	<c:url var="categories" value="/anime-main/categories.jsp" />
 	<c:url var="blog-details" value="/anime-main/blog-details.jsp" />
 	<c:url var="blog" value="/anime-main/blog.jsp" />
@@ -51,7 +51,7 @@
 	</div>
 
 	<!-- Header Section Begin -->
-	<c:import url="/anime-main/header.jsp" />
+	 <c:import url = "/anime-main/header.jsp"/>
 	<!-- Header End -->
 
 	<!-- Normal Breadcrumb Begin -->
@@ -118,7 +118,7 @@
 	<!-- Signup Section End -->
 
 	<!-- Footer Section Begin -->
-	<c:import url="/anime-main/footer.jsp" />
+<c:import url = "/anime-main/footer.jsp"/>
 	<!-- Footer Section End -->
 
 	<!-- Search model Begin -->

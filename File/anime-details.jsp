@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -40,7 +39,7 @@
 	<c:url var="signup" value="/anime-main/signup.jsp" />
 	<c:url var="loginServlet" value="login" />
 	<c:url var="urlAvatar"
-		value="${request.rervletContext.realPath}/anime-main/storage/avatarUser/${sessionScope.user.avatar}?${now}" />
+		value="${request.rervletContext.realPath}/anime-main/storage/avatarUser/${sessionScope.user.avatar}" />
 	<c:url var="categories" value="/anime-main/categories.jsp" />
 	<c:url var="blog-details" value="/anime-main/blog-details.jsp" />
 	<c:url var="blog" value="/anime-main/blog.jsp" />
@@ -48,7 +47,7 @@
 	<c:url var="anime-details" value="/anime-main/anime-deails.jsp" />
 
 	<c:url var="urlAvatarFilm"
-		value="${request.rervletContext.realPath}/anime-main/storage/avatarMovie/${viewFilm.avatar}?${now}" />
+		value="${request.rervletContext.realPath}/anime-main/storage/avatarMovie/${viewFilm.avatar}" />
 	<c:url var="anime_watching" value="/anime-main/anime-watching.jsp" />
 	<c:url var="userComment" value="comment" />
 	<c:url var="follow" value="follow" />
@@ -131,22 +130,22 @@
 
 										<a href="${follow}?${viewFilm.idMovie}" class="follow-btn">
 											<i class="fa fa-heart-o"></i> Follow
-
+											
 										</a>
 
 									</c:when>
 									<c:when test="${empty checkFl}">
 
-										<a href="${follow}?${viewFilm.idMovie}" class="follow-btn">
+											<a href="${follow}?${viewFilm.idMovie}" class="follow-btn">
 											<i class="fa fa-heart-o"></i> Follow
-
+											
 										</a>
 
 									</c:when>
 									<c:when test="${checkFl==true}">
 										<a href="${follow}?${viewFilm.idMovie}" class="follow-btn">
 											<i class="fa fa-heart"></i> Follow
-
+											
 										</a>
 									</c:when>
 
@@ -158,8 +157,7 @@
 									class="fa fa-angle-right"></i></a>
 								<button id="rateBtn">Rate</button>
 								<div>
-									<form action="${voteMovie}?id=${viewFilm.idMovie}"
-										method="post" id="formVote">
+									<form action="${voteMovie}?id=${viewFilm.idMovie}" method="post" id="formVote">
 										<p class="fa fa-star rateStar"></p>
 										<p class="fa fa-star rateStar"></p>
 										<p class="fa fa-star rateStar"></p>
@@ -171,18 +169,15 @@
 										<p class="fa fa-star rateStar"></p>
 										<p class="fa fa-star rateStar"></p>
 										<c:choose>
-
+										
 											<c:when test="${empty sessionScope.user}">
-												<input type="number" id="scoreMovie" value="1"
-													name="scoreMovie" style="display: none;">
+											<input type="number" id="scoreMovie" value="1" name="scoreMovie" style="display:none;">
 											</c:when>
 											<c:when test="${not empty sessionScope.user}">
-												<input type="number" id="scoreMovie"
-													value="${user.getmyRate(viewFilm.idMovie)}"
-													name="scoreMovie" style="display: none;">
+											<input type="number" id="scoreMovie" value="${user.getmyRate(viewFilm.idMovie)}" name="scoreMovie" style="display:none;">
 											</c:when>
 										</c:choose>
-										<input type="submit" value="vote">
+										<input id="vote" type="submit" value="vote">
 									</form>
 								</div>
 							</div>
@@ -203,7 +198,7 @@
 							<div class="anime__review__item">
 								<div class="anime__review__item__pic">
 									<c:url var="avt"
-										value="/anime-main/storage/avatarUser/${comment.account.avatar}?${now}" />
+										value="/anime-main/storage/avatarUser/${comment.account.avatar}" />
 									<img src="${avt}" alt="">
 								</div>
 								<div class="anime__review__item__text">
@@ -262,7 +257,7 @@
 		</div>
 	</div>
 	<!-- Search model end -->
-
+	
 	<!-- Js Plugins -->
 	<script src="js/jquery-3.3.1.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>

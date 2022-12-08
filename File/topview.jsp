@@ -29,20 +29,19 @@
 
 
 
-				<c:forEach var="mv" items="${listMovie.getTop5Movie()}">
+				<c:forEach var="mv" items="${topMovie}">
 					<div class="product__sidebar__view__item set-bg mix day years"
 						<c:url var="urlAvatarMovie"
 											value="/anime-main/storage/avatarMovie/${mv.avatar}" />
-						data-setbg="${urlAvatarMovie}"
-						style="background-position: center; background-size: cover;">
+						data-setbg="${urlAvatarMovie}" style="background-position:center;background-size:cover;">
 						<div class="ep">${mv.currentEpisode}/${mv.totalEpisodes}</div>
 						<div class="rate">
 							${mv.getAvgScore()} <i class='fa fa-star' style='color: #f3da35'></i>
 						</div>
-						<div class="view" style='bottom: 10px; right: 10px; top: unset;'>
+						<div class="view" style='bottom:10px;right:10px;top:unset;	'>
 							<i class="fa fa-eye"></i>${mv.view}
 						</div>
-
+						
 						<h5>
 							<a href="${anime_details}?${mv.idMovie}">${mv.nameMovie}</a>
 						</h5>

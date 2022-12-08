@@ -1,8 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
-
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -12,7 +10,6 @@
 <meta name="keywords" content="Anime, unica, creative, html">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
 <title>Anime | Template</title>
 
 <!-- Google Font -->
@@ -46,12 +43,12 @@
 	<c:url var="categories" value="/anime-main/categories.jsp" />
 	<c:url var="blog-details" value="/anime-main/blog-details.jsp" />
 	<c:url var="blog" value="/anime-main/blog.jsp" />
-	<c:url var="anime-details" value="/anime-main/anime-details.jsp" />
+	<c:url var="anime-details" value="/anime-main/anime-deails.jsp" />
 	<c:url var="urlAvatarFilm"
 		value="${request.rervletContext.realPath}/anime-main/storage/avatarMovie/${viewFilm.avatar}" />
 	<c:url var="chapterBegin"
-		value="${request.rervletContext.realPath}/anime-main/storage/chapter/${linkChap}" />
-	<c:url var="goWatch" value="watching" />
+		value="${request.rervletContext.realPath}/anime-main/storage/chapter/${linkChap}"></c:url>
+	<c:url var="goWatch" value="watching"/>
 	<c:url var="userComment" value="comment" />
 	<!-- Page Preloder -->
 	<div id="preloder">
@@ -59,7 +56,7 @@
 	</div>
 
 	<!-- Header Section Begin -->
-	<c:import url="/anime-main/header.jsp" />
+	 <c:import url = "/anime-main/header.jsp"/>
 	<!-- Header End -->
 
 	<!-- Breadcrumb Begin -->
@@ -82,12 +79,12 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="anime__video__player">
-						<video id="player" controls data-poster="${urlAvatarFilm}">
-							<source src="${chapterBegin}?${cr}" type="video/mp4">
+						<video id="player"  controls
+							data-poster="${urlAvatarFilm}">
+							<source src="${chapterBegin}" type="video/mp4" />
 							<!-- Captions are optional -->
-
+							
 						</video>
-
 					</div>
 					<div class="anime__details__episodes">
 						<div class="section-title">
@@ -95,11 +92,8 @@
 						</div>
 						<c:forEach var="chapter" items="${viewFilm.listchapter}">
 
-							<a href="${goWatch}?cid=${viewFilm.idMovie}_${chapter.index}.mp4">Ep
-								${chapter.index}</a>
-
+							<a href="${goWatch}?cid=${viewFilm.idMovie}_${chapter.index}.mp4">Ep ${chapter.index}</a>
 						</c:forEach>
-
 					</div>
 				</div>
 			</div>
@@ -109,46 +103,23 @@
 						<div class="section-title">
 							<h5>Reviews</h5>
 						</div>
-
-
-
-						<c:forEach var="comment" items="${viewFilm.listComment}">
-							<div class="anime__review__item">
-								<div class="anime__review__item__pic">
-									<c:url var="avt"
-										value="/anime-main/storage/avatarUser/${comment.account.avatar}?${now}" />
-									<img src="${avt}" alt="">
-								</div>
-								<div class="anime__review__item__text">
-									<h6>
-										${comment.account.userName} - <span>${comment.getDifferentTime(nowTime)}</span>
-									</h6>
-									<p>${comment.comment}</p>
-								</div>
+						
+						
+						
+				<c:forEach var="comment" items="${viewFilm.listComment}">
+						<div class="anime__review__item">
+							<div class="anime__review__item__pic">
+							<c:url var="avt" value="/anime-main/storage/avatarUser/${comment.account.avatar}" />
+								<img src="${avt}" alt="">
 							</div>
-						</c:forEach>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+							<div class="anime__review__item__text">
+								<h6>
+									${comment.account.userName} - <span>${comment.getDifferentTime(nowTime)}</span>
+								</h6>
+								<p>${comment.comment}</p>
+							</div>
+						</div>
+						</c:forEach>				
 					</div>
 					<div class="anime__details__form">
 						<div class="section-title">
@@ -168,7 +139,7 @@
 	<!-- Anime Section End -->
 
 	<!-- Footer Section Begin -->
-	<c:import url="/anime-main/footer.jsp" />
+	 <c:import url = "/anime-main/footer.jsp"/>
 	<!-- Footer Section End -->
 
 	<!-- Search model Begin -->
@@ -185,6 +156,7 @@
 	<!-- Search model end -->
 
 	<!-- Js Plugins -->
+	
 	<script src="js/jquery-3.3.1.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/player.js"></script>
@@ -193,7 +165,7 @@
 	<script src="js/jquery.slicknav.js"></script>
 	<script src="js/owl.carousel.min.js"></script>
 	<script src="js/main.js"></script>
-
+	
 
 </body>
 
