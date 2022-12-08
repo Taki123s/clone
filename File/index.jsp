@@ -32,7 +32,7 @@
 <script src="https://kit.fontawesome.com/9847adceef.js"></script>
 </head>
 
-<body>
+<body >
 	<c:url var="index" value="/anime-main/index.jsp" />
 	<c:url var="login" value="/anime-main/login.jsp" />
 	<c:url var="signup" value="/anime-main/signup.jsp" />
@@ -48,7 +48,8 @@
 		value="${request.rervletContext.realPath}/anime-main/storage/avatarUser/${sessionScope.user.avatar}" />
 	<c:url var="profileServlet" value="/anime-main/profile.jsp" />
 	<!-- Page Preloder -->
-	<div id="preloder">
+
+<div id="preloder">
 		<div class="loader"></div>
 	</div>
 
@@ -116,7 +117,7 @@
 									<h4>Danh sách phim mới</h4>
 								</div>
 							</div>
-
+							
 						</div>
 						<div class="row">
 							<c:forEach var="movie" items="${listMovie.getListMovie()}">
@@ -145,6 +146,8 @@
 												<li>${movie.genre}</li>
 											</ul>
 											<h5>
+
+
 												<a href="${anime_details}?${movie.idMovie}">${movie.nameMovie}</a>
 											</h5>
 										</div>
@@ -157,6 +160,10 @@
 
 
 				</div>
+
+
+
+
 				<c:import url="/anime-main/topview.jsp" />
 
 

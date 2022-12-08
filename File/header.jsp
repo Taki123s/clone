@@ -1,8 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <c:url var="index" value="/anime-main/index.jsp" />
 <c:url var="login" value="/anime-main/login.jsp" />
 <c:url var="signup" value="/anime-main/signup.jsp" />
@@ -14,10 +12,8 @@
 <c:url var="animedetails" value="/anime-main/anime-details.jsp" />
 <c:url var="anime_details" value="anime_details" />
 <c:url var="loginServlet" value="login" />
-<jsp:useBean id="now" class="java.util.Date" scope="request" />
-
 <c:url var="urlAvatar"
-	value="${request.servletContext.realPath}/anime-main/storage/avatarUser/${user.avatar}?${now}" />
+	value="${request.rervletContext.realPath}/anime-main/storage/avatarUser/${sessionScope.user.avatar}" />
 
 <c:url var="profileServlet" value="/anime-main/profile.jsp" />
 <c:url var="GenreSl" value="genre" />
@@ -63,8 +59,8 @@
 						<c:when test="${not empty sessionScope.user}">
 							<c:if test="${sessionScope.user.isAdmin==0}">
 								<div>
-									<img alt="" src="${urlAvatar}" id="avtUser">
-									<ul class="profile">
+									<img alt="" src="${urlAvatar}" id="avtUser" onclick="vision()">
+									<ul class="profile" id="profile">
 
 										<li><a href="${profileServlet}"><button class="">Quản
 													lý tài khoản</button></a></li>
@@ -76,13 +72,15 @@
 							</c:if>
 							<c:if test="${sessionScope.user.isAdmin==1}">
 								<div>
-									<img alt="" src="${urlAvatar}" id="avtUser">
-									<ul class="profile">
+									<img alt="" src="${urlAvatar}" id="avtUser" onclick="vision()">
+									<ul class="profile" id="profile">
 
 										<li><a href="${profileServlet}"><button class="">Quản
 													lý tài khoản</button></a></li>
-										<c:url var="adm" value="../admin/featureAdmin" />
-										<li><a href="${adm}"><button class="fa fa-cog"></button></a></li>
+										<c:url var="adm" value="/anime-main/managerment.jsp" />
+										<li><a href="${adm}">
+												<button class="fa fa-cog"></button>
+										</a></li>
 										<li><a href="${loginServlet}"><button
 													class="fas fa-sign-out-alt"></button></a></li>
 
@@ -135,4 +133,33 @@
 		});
 
 	}
+</script>
+<script>
+	function vision() {
+
+		var isVisible = document.getElementById("profile").style.display;
+		if (isVisible == "") {
+			document.getElementById("profile").style.display = 'block';
+		} else if (isVisible == "block") {
+			document.getElementById("profile").style.display = 'none';
+		} else {
+			document.getElementById("profile").style.display = 'block';
+		}
+
+	}
+</script>
+<script>
+	$(function() {
+
+		$('#nav ul li a').each(function() {
+			var path = window.location.href;
+			var current = path.substring(path.lastIndexOf('/') + 1);
+			var url = $(this).attr('href');
+
+			if (url == current) {
+				$(this).addClass('active');
+			}
+			;
+		});
+	});
 </script>

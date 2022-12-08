@@ -39,19 +39,19 @@
 	<c:url var="loginServlet" value="login" />
 	<c:url var="urlAvatar"
 		value="${request.rervletContext.realPath}/anime-main/storage/avatarUser/${sessionScope.user.avatar}" />
-	<c:url var="categories" value="/anime-main/categories.jsp" />
+		<c:url var="categories" value="/anime-main/categories.jsp" />
 	<c:url var="blog-details" value="/anime-main/blog-details.jsp" />
 	<c:url var="blog" value="/anime-main/blog.jsp" />
 	<c:url var="anime-watching" value="/anime-main/anime-watching.jsp" />
 	<c:url var="anime-details" value="/anime-main/anime-deails.jsp" />
-	<c:url var="gotoBlogDetail" value="gotoblog" />
+	<c:url var="gotoBlogDetail" value="gotoblog"/>
 	<!-- Page Preloder -->
 	<div id="preloder">
 		<div class="loader"></div>
 	</div>
 
 	<!-- Header Section Begin -->
-	<c:import url="/anime-main/header.jsp" />
+	 <c:import url = "/anime-main/header.jsp"/>
 	<!-- Header End -->
 
 	<!-- Normal Breadcrumb Begin -->
@@ -74,111 +74,98 @@
 	<section class="blog spad">
 		<div class="container">
 			<div class="row">
-
-				<c:if test="${listBlog.getColumn()>0}">
-					<c:forEach var="i" begin="0" end="${listBlog.getColumn()-1}"
-						step="1">
-
-
-						<div class="col-lg-6">
-							<div class="row">
-								<div class="col-lg-12">
-									<div class="blog__item set-bg"
-										data-setbg="storage/blogSave/${listBlog.getbyColumn(i).get(0).getFolder()}/${listBlog.getbyColumn(i).get(0).getAvt()}">
-										<div class="blog__item__text">
-											<p>
-												<span class="icon_calendar"></span>${listBlog.getbyColumn(i).get(0).getDayDebut()}
-											</p>
-											<h4>
-												<a
-													href="${gotoBlogDetail}?${listBlog.getbyColumn(i).get(0).getIdBlog()}">${listBlog.getbyColumn(i).get(0).getTitle()}</a>
-											</h4>
-										</div>
-									</div>
-								</div>
-								<div class="col-lg-6 col-md-6 col-sm-6">
-									<div class="blog__item small__item set-bg"
-										data-setbg="storage/blogSave/${listBlog.getbyColumn(i).get(1).getFolder()}/${listBlog.getbyColumn(i).get(1).getAvt()}">
-										<div class="blog__item__text">
-											<p>
-												<span class="icon_calendar"></span>
-												${listBlog.getbyColumn(i).get(1).getDayDebut()}
-											</p>
-											<h4>
-												<a
-													href="${gotoBlogDetail}?${listBlog.getbyColumn(i).get(1).getIdBlog()}">${listBlog.getbyColumn(i).get(1).getTitle()}</a>
-											</h4>
-										</div>
-									</div>
-								</div>
-								<div class="col-lg-6 col-md-6 col-sm-6">
-									<div class="blog__item small__item set-bg"
-										data-setbg="storage/blogSave/${listBlog.getbyColumn(i).get(2).getFolder()}/${listBlog.getbyColumn(i).get(2).getAvt()}">
-										<div class="blog__item__text">
-											<p>
-												<span class="icon_calendar"></span>
-												${listBlog.getbyColumn(i).get(2).getDayDebut()}
-											</p>
-											<h4>
-												<a
-													href="${gotoBlogDetail}?${listBlog.getbyColumn(i).get(2).getIdBlog()}">${listBlog.getbyColumn(i).get(2).getTitle()}</a>
-											</h4>
-										</div>
-									</div>
-								</div>
-								<div class="col-lg-12">
-									<div class="blog__item set-bg"
-										data-setbg="storage/blogSave/${listBlog.getbyColumn(i).get(3).getFolder()}/${listBlog.getbyColumn(i).get(3).getAvt()}">
-										<div class="blog__item__text">
-											<p>
-												<span class="icon_calendar"></span>
-												${listBlog.getbyColumn(i).get(3).getDayDebut()}
-											</p>
-											<h4>
-												<a
-													href="${gotoBlogDetail}?${listBlog.getbyColumn(i).get(3).getIdBlog()}">${listBlog.getbyColumn(i).get(3).getTitle()}</a>
-											</h4>
-										</div>
-									</div>
-								</div>
-								<div class="col-lg-6 col-md-6 col-sm-6">
-									<div class="blog__item small__item set-bg"
-										data-setbg="storage/blogSave/${listBlog.getbyColumn(i).get(4).getFolder()}/${listBlog.getbyColumn(i).get(4).getAvt()}">
-										<div class="blog__item__text">
-											<p>
-												<span class="icon_calendar"></span>
-												${listBlog.getbyColumn(i).get(4).getDayDebut()}
-											</p>
-											<h4>
-												<a
-													href="${gotoBlogDetail}?${listBlog.getbyColumn(i).get(4).getIdBlog()}">${listBlog.getbyColumn(i).get(4).getTitle()}</a>
-											</h4>
-										</div>
-									</div>
-								</div>
-								<div class="col-lg-6 col-md-6 col-sm-6">
-									<div class="blog__item small__item set-bg"
-										data-setbg="storage/blogSave/${listBlog.getbyColumn(i).get(5).getFolder()}/${listBlog.getbyColumn(i).get(5).getAvt()}">
-										<div class="blog__item__text">
-											<p>
-												<span class="icon_calendar"></span>
-												${listBlog.getbyColumn(i).get(5).getDayDebut()}
-											</p>
-											<h4>
-												<a
-													href="${gotoBlogDetail}?${listBlog.getbyColumn(i).get(5).getIdBlog()}">${listBlog.getbyColumn(i).get(5).getTitle()}</a>
-											</h4>
-										</div>
-									</div>
+			
+			
+			
+			<c:if test="${listBlog.getColumn()>0}">
+			<c:forEach var="i" begin="0" end="${listBlog.getColumn()-1}" step="1">
+					
+			
+				<div class="col-lg-6">
+					<div class="row">
+						<div class="col-lg-12">
+							<div class="blog__item set-bg" data-setbg="storage/blogSave/${listBlog.getbyColumn(i).get(0).getFolder()}/${listBlog.getbyColumn(i).get(0).getAvt()}">
+								<div class="blog__item__text">
+									<p>
+										<span class="icon_calendar"></span>${listBlog.getbyColumn(i).get(0).getDayDebut()}
+									</p>
+									<h4>
+										<a href="${gotoBlogDetail}?${listBlog.getbyColumn(i).get(0).getIdBlog()}">${listBlog.getbyColumn(i).get(0).getTitle()}</a>
+									</h4>
 								</div>
 							</div>
 						</div>
-					</c:forEach>
-				</c:if>
-				<c:if test="${listBlog.getLastColumn()>0}">
-					<c:forEach var="blogItem"
-						items="${listBlog.getbyLastColumn(listBlog.getLastColumn())}">
 						<div class="col-lg-6 col-md-6 col-sm-6">
+							<div class="blog__item small__item set-bg"
+								data-setbg="storage/blogSave/${listBlog.getbyColumn(i).get(1).getFolder()}/${listBlog.getbyColumn(i).get(1).getAvt()}">
+								<div class="blog__item__text">
+									<p>
+										<span class="icon_calendar"></span> ${listBlog.getbyColumn(i).get(1).getDayDebut()}
+									</p>
+									<h4>
+										<a href="${gotoBlogDetail}?${listBlog.getbyColumn(i).get(1).getIdBlog()}">${listBlog.getbyColumn(i).get(1).getTitle()}</a>
+									</h4>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-6 col-md-6 col-sm-6">
+							<div class="blog__item small__item set-bg"
+								data-setbg="storage/blogSave/${listBlog.getbyColumn(i).get(2).getFolder()}/${listBlog.getbyColumn(i).get(2).getAvt()}">
+								<div class="blog__item__text">
+									<p>
+										<span class="icon_calendar"></span> ${listBlog.getbyColumn(i).get(2).getDayDebut()}
+									</p>
+									<h4>
+										<a href="${gotoBlogDetail}?${listBlog.getbyColumn(i).get(2).getIdBlog()}">${listBlog.getbyColumn(i).get(2).getTitle()}</a>
+									</h4>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-12">
+							<div class="blog__item set-bg" data-setbg="storage/blogSave/${listBlog.getbyColumn(i).get(3).getFolder()}/${listBlog.getbyColumn(i).get(3).getAvt()}">
+								<div class="blog__item__text">
+									<p>
+										<span class="icon_calendar"></span>  ${listBlog.getbyColumn(i).get(3).getDayDebut()}
+									</p>
+									<h4>
+										<a href="${gotoBlogDetail}?${listBlog.getbyColumn(i).get(3).getIdBlog()}">${listBlog.getbyColumn(i).get(3).getTitle()}</a>
+									</h4>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-6 col-md-6 col-sm-6">
+							<div class="blog__item small__item set-bg"
+								data-setbg="storage/blogSave/${listBlog.getbyColumn(i).get(4).getFolder()}/${listBlog.getbyColumn(i).get(4).getAvt()}">
+								<div class="blog__item__text">
+									<p>
+										<span class="icon_calendar"></span>  ${listBlog.getbyColumn(i).get(4).getDayDebut()}
+									</p>
+									<h4>
+										<a href="${gotoBlogDetail}?${listBlog.getbyColumn(i).get(4).getIdBlog()}">${listBlog.getbyColumn(i).get(4).getTitle()}</a>
+									</h4>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-6 col-md-6 col-sm-6">
+							<div class="blog__item small__item set-bg"
+								data-setbg="storage/blogSave/${listBlog.getbyColumn(i).get(5).getFolder()}/${listBlog.getbyColumn(i).get(5).getAvt()}">
+								<div class="blog__item__text">
+									<p>
+										<span class="icon_calendar"></span> ${listBlog.getbyColumn(i).get(5).getDayDebut()}
+									</p>
+									<h4>
+										<a href="${gotoBlogDetail}?${listBlog.getbyColumn(i).get(5).getIdBlog()}">${listBlog.getbyColumn(i).get(5).getTitle()}</a>
+									</h4>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</c:forEach>
+			</c:if>
+			<c:if test="${listBlog.getLastColumn()>0}">
+				<c:forEach var="blogItem" items="${listBlog.getbyLastColumn(listBlog.getLastColumn())}">
+					<div class="col-lg-6 col-md-6 col-sm-6">
 							<div class="blog__item small__item set-bg"
 								data-setbg="storage/blogSave/${blogItem.getFolder()}/${blogItem.getAvt()}">
 								<div class="blog__item__text">
@@ -192,24 +179,24 @@
 							</div>
 						</div>
 
-					</c:forEach>
-				</c:if>
-
-
-
-
-
-
-
-
-
+				</c:forEach>
+			</c:if>
+			
+			
+			
+			
+	
+			
+			
+			
+			
 			</div>
 		</div>
 	</section>
 	<!-- Blog Section End -->
 
 	<!-- Footer Section Begin -->
-	<c:import url="/anime-main/footer.jsp" />
+	 <c:import url = "/anime-main/footer.jsp"/>
 	<!-- Footer Section End -->
 
 	<!-- Search model Begin -->
@@ -236,5 +223,6 @@
 	<script src="js/main.js"></script>
 
 </body>
+
 
 </html>

@@ -61,7 +61,7 @@
 				<div class="col-lg-12">
 					<div class="breadcrumb__links">
 						<a href="${index}"><i class="fa fa-home"></i> Home</a> <a
-							href="./categories.jsp">Categories</a> <span>Romance</span>
+							href="./categories.jsp">Categories</a> <span>${rqGenre}</span>
 					</div>
 				</div>
 			</div>
@@ -78,12 +78,12 @@
 						<div class="row">
 							<div class="col-lg-8 col-md-8 col-sm-8">
 								<div class="section-title">
-									<h4>Trending Now</h4>
+									<h4>${rqGenre}</h4>
 								</div>
 							</div>
 							<div class="col-lg-4 col-md-4 col-sm-4">
 								<div class="btn__all">
-									<a href="#" class="primary-btn">View All <span
+									<a href="" class="primary-btn">View All <span
 										class="arrow_right"></span></a>
 								</div>
 							</div>
@@ -128,7 +128,108 @@
 
 
 				</div>
-				<c:import url="/anime-main/topview.jsp" />
+				<div class="col-lg-4 col-md-6 col-sm-8">
+					<div class="product__sidebar">
+						<div class="product__sidebar__view">
+							<div class="section-title">
+								<h5>Top Views</h5>
+							</div>
+							<ul class="filter__controls">
+								<li class="active" data-filter="*">Day</li>
+								<li data-filter=".week">Week</li>
+								<li data-filter=".month">Month</li>
+								<li data-filter=".years">Years</li>
+							</ul>
+							<div class="filter__gallery">
+								<c:forEach var="mv" items="${topMovie}">
+									<div class="product__sidebar__view__item set-bg mix day week month years"
+										<c:url var="urlAvatarMovie"
+											value="/anime-main/storage/avatarMovie/${mv.avatar}" />
+										data-setbg="${urlAvatarMovie}"
+										style="background-position: center; background-size: cover;">
+										<div class="ep">${mv.currentEpisode}/${mv.totalEpisodes}</div>
+										<div class="rate">
+											${mv.getAvgScore()} <i class='fa fa-star'
+												style='color: #f3da35'></i>
+										</div>
+										<div class="view"
+											style='bottom: 10px; right: 10px; top: unset;'>
+											<i class="fa fa-eye"></i>${mv.view}
+										</div>
+
+										<h5>
+											<a href="${anime_details}?${mv.idMovie}">${mv.nameMovie}</a>
+										</h5>
+									</div>
+								</c:forEach>
+								
+						<div class="product__sidebar__comment">
+							<div class="section-title">
+								<h5>New Comment</h5>
+							</div>
+							<div class="product__sidebar__comment__item">
+								<div class="product__sidebar__comment__item__pic">
+									<img src="img/sidebar/comment-1.jpg" alt="">
+								</div>
+								<div class="product__sidebar__comment__item__text">
+									<ul>
+										<li>Active</li>
+										<li>Movie</li>
+									</ul>
+									<h5>
+										<a href="#">The Seven Deadly Sins: Wrath of the Gods</a>
+									</h5>
+									<span><i class="fa fa-eye"></i> 19.141 Viewes</span>
+								</div>
+							</div>
+							<div class="product__sidebar__comment__item">
+								<div class="product__sidebar__comment__item__pic">
+									<img src="img/sidebar/comment-2.jpg" alt="">
+								</div>
+								<div class="product__sidebar__comment__item__text">
+									<ul>
+										<li>Active</li>
+										<li>Movie</li>
+									</ul>
+									<h5>
+										<a href="#">Shirogane Tamashii hen Kouhan sen</a>
+									</h5>
+									<span><i class="fa fa-eye"></i> 19.141 Viewes</span>
+								</div>
+							</div>
+							<div class="product__sidebar__comment__item">
+								<div class="product__sidebar__comment__item__pic">
+									<img src="img/sidebar/comment-3.jpg" alt="">
+								</div>
+								<div class="product__sidebar__comment__item__text">
+									<ul>
+										<li>Active</li>
+										<li>Movie</li>
+									</ul>
+									<h5>
+										<a href="#">Kizumonogatari III: Reiket su-hen</a>
+									</h5>
+									<span><i class="fa fa-eye"></i> 19.141 Viewes</span>
+								</div>
+							</div>
+							<div class="product__sidebar__comment__item">
+								<div class="product__sidebar__comment__item__pic">
+									<img src="img/sidebar/comment-4.jpg" alt="">
+								</div>
+								<div class="product__sidebar__comment__item__text">
+									<ul>
+										<li>Active</li>
+										<li>Movie</li>
+									</ul>
+									<h5>
+										<a href="#">Monogatari Series: Second Season</a>
+									</h5>
+									<span><i class="fa fa-eye"></i> 19.141 Viewes</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</section>

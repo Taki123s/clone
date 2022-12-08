@@ -37,20 +37,20 @@
 	<div id="preloder">
 		<div class="loader"></div>
 	</div>
-	<c:url var="index" value="/anime-main/index.jsp" />
-	<c:url var="login" value="/anime-main/login.jsp" />
+	<c:url  var="index" value="/anime-main/index.jsp" />
+	<c:url  var="login" value="/anime-main/login.jsp" />
 	<c:url var="signup" value="/anime-main/signup.jsp" />
 	<c:url var="urlAvatar"
 		value="${request.rervletContext.realPath}/anime-main/storage/avatarUser/${sessionScope.user.avatar}" />
-
+		
 	<c:url var="categories" value="/anime-main/categories.jsp" />
 	<c:url var="blog-details" value="/anime-main/blog-details.jsp" />
 	<c:url var="blog" value="/anime-main/blog.jsp" />
 	<c:url var="anime-watching" value="/anime-main/anime-watching.jsp" />
 	<c:url var="anime-details" value="/anime-main/anime-deails.jsp" />
-	<c:url var="loginServlet" value="login" />
+	<c:url  var="loginServlet" value="login" />
 	<!-- Header Section Begin -->
-	<c:import url="/anime-main/header.jsp" />
+	 <c:import url = "/anime-main/header.jsp"/>
 	<!-- Header End -->
 
 	<!-- Normal Breadcrumb Begin -->
@@ -78,16 +78,15 @@
 						<h3>Login</h3>
 						<form action="${loginServlet}" method="get">
 							<div class="input__item">
-								<input type="text" placeholder="Email address" name="loginName">
+								<input type="text" placeholder="User Name" name="loginName">
 								<span class="icon_mail"></span>
 							</div>
 							<div class="input__item">
 								<input type="password" placeholder="Password"
 									name="loginPassword"> <span class="icon_lock"></span>
 							</div>
-
-							<button type="submit" class="site-btn" value="login"
-								name="accountBtn">Login Now</button>
+						
+							<button type="submit" class="site-btn" value="login" name="accountBtn">Login Now</button>
 						</form>
 						<a href="#" class="forget_pass">Forgot Your Password?</a>
 					</div>
@@ -121,7 +120,7 @@
 	<!-- Login Section End -->
 
 	<!-- Footer Section Begin -->
-	<c:import url="/anime-main/footer.jsp" />
+	 <c:import url = "/anime-main/footer.jsp"/>
 	<!-- Footer Section End -->
 
 	<!-- Search model Begin -->
